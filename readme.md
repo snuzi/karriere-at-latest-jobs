@@ -1,3 +1,5 @@
+List karriere.at jobs ordered by last update date.
+
 ### Usage
 
 - Run `composer install`
