@@ -1,0 +1,8 @@
+{
+    "name": "Jobs",
+    "type": "App",
+    "keywords": ["php"],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    }
+}
