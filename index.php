@@ -17,12 +17,11 @@ $params = [
 ];
 
 foreach ($requiredParams as $key => $type) {
-    if (!isset($_GET[$key]))
-    {
-        echo 'Error: these query prameters are required ' . implode(', ', $requiredParams); 
+    if (!isset($_GET[$key])) {
+        echo 'Error: these query prameters are required ' . implode(', ', $requiredParams);
         exit;
     }
-    
+
     if ($type == 'array') {
         $params[$key . '[]'] = implode(',', $_GET[$key]);
     } else {
@@ -35,21 +34,21 @@ printJobs($jobs);
 
 function printJobs($jobs)
 {
-    echo '<b>Total: '. count($jobs) . '</b> 
+    echo '<b>Total: ' . count($jobs) . '</b> 
     <br> 
     <br>';
 
     $count = 1;
     foreach ($jobs as $item) {
-        if(!isset($item['jobsItem'])){
+        if (!isset($item['jobsItem'])) {
             continue;
         }
-        
+
         $job = $item['jobsItem'];
-        echo $count++ . ') ' 
-        . '<a href="' . $job['link'] . '" target="_blank" >' . $job['title'] . '</a> <br>
-        Company: <a href="' . $job['company']['link'] . '" target="_blank" >' . $job['company']['name']  . '</a>
-        Posted: ' . $job['date']. '
+        echo $count++ . ') '
+            . '<a href="' . $job['link'] . '" target="_blank" >' . $job['title'] . '</a> <br>
+        Company: <a href="' . $job['company']['link'] . '" target="_blank" >' . $job['company']['name'] . '</a>
+        Posted: ' . $job['date'] . '
         <br>
         <br>';
     }
@@ -62,13 +61,13 @@ function getJobs($parameters)
     $content = getResult($params);
 
     $moreContent = [];
- 
-    while (isset($content['data']['jobsSearchList']['pagination']) 
+
+    while (isset($content['data']['jobsSearchList']['pagination'])
         && $content['data']['jobsSearchList']['pagination']['number'] < $content['data']['jobsSearchList']['pagination']['pages']
-        ) {
-         
+    ) {
+
         $params['page'] = $content['data']['jobsSearchList']['pagination']['next'];
-         
+
         $moreContent = getResult($params);
 
         if ($moreContent) {
@@ -119,15 +118,16 @@ function getResult($params)
     return $content;
 }
 
-function sortJobs($jobs) {
+function sortJobs($jobs)
+{
 
     $jobsArray = [];
-    
+
     foreach ($jobs as $item) {
         if (!isset($item['jobsItem'])) {
             continue;
         }
-    
+
         $origDate = str_replace('am ', '', $item['jobsItem']['date']);
         $splitedDate = explode('.', $origDate);
 
