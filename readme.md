@@ -1,5 +1,7 @@
 List karriere.at jobs ordered by last update date.
 
+`PHP 7.3` is required
+
 ### Usage
 
 - Run `composer install`
