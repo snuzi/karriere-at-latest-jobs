@@ -8,7 +8,7 @@ use sabri\karriere\Karriere;
 
 class KarriereTest extends TestCase
 {
-    public function testTrueAssetsToTrue()
+    public function testGetJobs()
     {
         $params = [
             'keywords' => 'java',
