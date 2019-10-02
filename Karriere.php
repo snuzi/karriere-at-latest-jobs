@@ -2,8 +2,8 @@
 
 namespace sabri\karriere;
 
-use GuzzleHttp\Client;
 use Exception;
+use GuzzleHttp\Client;
 
 class Karriere
 {
@@ -21,7 +21,7 @@ class Karriere
     private $headers = [
         ':authority' => 'www.karriere.at',
         ':method' => 'GET',
-        ':path' => '/jobs?keywords=php&locations=linz&page=3&jobFields%5B%5D=2172&employmentTypes%5B%5D=3960&states%5B%5D=2411',
+        ':path' => '/jobs?keywords=java&locations=linz&page=3&jobFields%5B%5D=2172&employmentTypes%5B%5D=3960&states%5B%5D=2411',
         ':scheme' => 'https',
         'accept' => '*/*',
         'accept-encoding' => 'gzip, deflate, br',
@@ -92,7 +92,7 @@ class Karriere
             if ($type == 'array') {
                 $parameters[$key . '[]'] = implode(',', $params[$key]);
             } else {
-                $parameters[$key] = $_GET[$key];
+                $parameters[$key] = $params[$key];
             }
         }
 
