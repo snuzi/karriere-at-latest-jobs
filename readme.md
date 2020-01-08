@@ -1,4 +1,7 @@
-List karriere.at jobs ordered by last update date.
+[![Build Status](https://travis-ci.org/snuzi/karriere-at-latest-jobs.svg?branch=master)](https://travis-ci.org/snuzi/karriere-at-latest-jobs)
+
+
+List www.karriere.at jobs ordered by last update date.
 
 `PHP 7.3` is required
 
